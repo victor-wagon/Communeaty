@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 2020_05_19_083649) do
   create_table "meals", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.string "description"
+    t.text "house_rules"
+    t.float "price"
+    t.integer "capacity"
+    t.string "address"
+    t.datetime "datetime"
   end
 
   create_table "users", force: :cascade do |t|
