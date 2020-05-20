@@ -1,1 +1,38 @@
 // Specific CSS for your home-page
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+
+}
+
+.banner h1 {
+  margin: 0;
+  color: rgb(18,118,1);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: rgb(18,118,1);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  opacity: 0.7;
+}
+
+.my-banner {
+  padding: 200px 0;
+}
+
+h1 {
+  color: blue;
+}
+
+.text-dark-overlay {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.black {
+  color: black;
+}
