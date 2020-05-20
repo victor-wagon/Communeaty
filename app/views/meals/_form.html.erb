@@ -4,10 +4,10 @@
     <%= f.input :description, error: 'Tell your guests what you planned out.' %>
     <%= f.input :house_rules, placeholder: "Tell your guests what they can and can't do! " %>
     <%= f.input :capacity, collection: [1,2,3,4,5,6,7,8,9,10]%>
+    <%= f.input :price, unit: "$" %>
     <%= f.input :address %>
     <%= f.input :datetime %>
-    <h3><%= current_user %></h3>
-    <%= f.association :user, value: current_user %>
+    <%= f.association :user, input_html: {value: current_user} %>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 </div>
