@@ -1,7 +1,26 @@
-<h2><%= @meal.title %></h2>
+<div class="container">
+  <div class="row mt-2">
+    <div class="col-md-12">
+      <h2><%= @meal.title %></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6" id="host_info">
+      <p><%= "Rating | Hosting_Frequency | Address"%></p>
+    </div>
+    <div class="col-md-6"></div>
+  </div>
+  <div class="row"></div>
+  <div class="row"></div>
+  <div class="row"></div>
+</div>
+
+
+<!-- <h2><%= @meal.title %></h2>
 <p><%= @meal.description %></p>
 <p><%= @meal.house_rules %></p>
 <p>$<%= @meal.price %></p>
 <p><%= @meal.capacity %></p>
 <p><%= @meal.datetime %></p>
 <p><%= @meal.address %></p>
+ -->
