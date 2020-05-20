@@ -1,5 +1,27 @@
-<h2>Meals path</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center">
+      <h1>Meals</h1>
+    </div>
+  </div>
+  <div class="row mx-4">
+    <% @meals.each do |meal| %>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <%= link_to meal_path(meal) do %>
+          <div class="card my-3">
+            <img src="img_food.jpg" alt="food_card" class="card-img-top">
+            <div class="card-body text-center">
+                <p> <%= "title: #{meal.title}" %></p>
+              </%>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<!-- <h2>Meals path</h2>
 
 <% @meals.each do |meal| %>
   <div><%= meal.title %> | <%= meal.user.email %></div>
-<% end %>
+<% end %> -->
