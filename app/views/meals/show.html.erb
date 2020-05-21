@@ -8,9 +8,20 @@
     <div class="col-md-6" id="host_info">
       <p><%= "Rating | Hosting_Frequency | Address"%></p>
     </div>
-    <div class="col-md-6"></div>
+    <div class="col-md-6 text-right" id= "host_info">
+      <p> <%= "Share | Save" %></p>
+    </div>
   </div>
-  <div class="row"></div>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="img_show_panel">
+        <%= image_tag(@meal.image, class: "img-thumbnail img_big")%>
+        <%= image_tag(@meal.image, class: "img-thumbnail img_medium")%>
+        <%= image_tag(@meal.image, class: "img-thumbnail img_small")%>
+      </div>
+
+    </div>
+  </div>
   <div class="row"></div>
   <div class="row"></div>
 </div>
