@@ -9,6 +9,7 @@
     <%= f.input :address %>
     <%= f.input :datetime %>
     <%= f.input :user, :as => :hidden, :input_html => { :value => @meal.user } %>
+    <%= f.file_field :image%>
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 </div>
