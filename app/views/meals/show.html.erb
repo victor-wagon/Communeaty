@@ -14,10 +14,15 @@
   </div>
   <div class="row">
     <div class="col-md-7 offset-md-1 p-0">
-      <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel" >
+      <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel" data-interval="4250" >
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <% @meal.images.each_with_index do |meal, index| %>
+            <% if index == 0 %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="0"class="active"></li>
+            <% else %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="<%= "#{index}" %>"></li>
+            <% end %>
+          <% end %>
         </ol>
         <div class="carousel-inner">
           <% @meal.images.each_with_index do |meal, index| %>
