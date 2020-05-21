@@ -9,12 +9,12 @@ require 'faker'
 
 time = Time.new
 
-2.times do
-  user = User.create(email: Faker::Internet.email, password: Faker::Internet.password(min_length: 7, max_length: 10))
-  2.times do
-    meal = Meal.create(title: Faker::Food.dish, description: Faker::Hacker.say_something_smart, house_rules: Faker::Movies::VForVendetta.quote, price: 32.5, capacity: 5, address: Faker::Address.street_address, datetime: "#{Time.now}", user_id: user.id)
-    2.times do
-      yo = Reservation.create(user_id: user.id, meal_id: meal.id, approved: true)
-    end
-  end
-end
+# 2.times do
+#   user = User.create(email: Faker::Internet.email, password: Faker::Internet.password(min_length: 7, max_length: 10))
+#   2.times do
+#     meal = Meal.create(title: Faker::Food.dish, description: Faker::Hacker.say_something_smart, house_rules: Faker::Movies::VForVendetta.quote, price: 32.5, capacity: 5, address: Faker::Address.street_address, datetime: "#{Time.now}", user_id: user.id)
+#     2.times do
+#       yo = Reservation.create(user_id: user.id, meal_id: meal.id, approved: true)
+#     end
+#   end
+# end
