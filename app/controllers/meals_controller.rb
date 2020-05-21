@@ -1,19 +1,20 @@
 class MealsController < ApplicationController
 
+
   def index
-    @meals = Meal.all
+    policy_scope @meals = Meal.all
   end
 
   def show
-    @meal = Meal.find(params[:id])
+    authorize @meal = Meal.find(params[:id])
   end
 
   def new
-    @meal = Meal.new
+    authorize @meal = Meal.new
   end
 
   def create
-    @meal = Meal.new(meal_params)
+    authorize @meal = Meal.new(meal_params)
     @meal.user = current_user
 
     if @meal.save
