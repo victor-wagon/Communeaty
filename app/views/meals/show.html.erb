@@ -44,6 +44,42 @@
       <div class="d-block w-100" style="height: 29.5vh; background-image:url(<%= rails_blob_url(@meal.images[3]) %>); background-size: 100% 100%; border-bottom-right-radius: 5px;"></div>
     </div>
   </div>
-  <div class="row"></div>
-  <div class="row"></div>
+  <%= @meal.reservations.count %>
+  <!--   <% @meal.reservations.each do |thing| %>
+  <% end %> -->
+  <% if @meal.user != current_user %>
+    <div class="row">
+      <div id="overlay" onclick="off()">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <%= simple_form_for [@meal, @reservation] do |f| %>
+                    <%= f.input :user, :as => :hidden, :input_html => { :value => @meal.user } %>
+                    <%= f.input :meal, :as => :hidden, :input_html => { :value => @meal } %>
+                    <%= f.input :approved %>
+                    <%= f.button :submit, class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:20px">
+        <h2>Overlay with Text</h2>
+        <button onclick="on()">Turn on overlay effect</button>
+      </div>
+    </div>
+    <script>
+      function on() {
+        document.getElementById("overlay").style.display = "block";
+      }
+      
+      function off() {
+        document.getElementById("overlay").style.display = "none";
+      }
+    </script>
+  <% end %>
 </div>
