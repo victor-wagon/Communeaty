@@ -7,6 +7,7 @@ class MealsController < ApplicationController
 
   def show
     authorize @meal = Meal.find(params[:id])
+    authorize @reservation = Reservation.new
   end
 
   def new
@@ -25,7 +26,7 @@ class MealsController < ApplicationController
   end
 
 
-private
+  private
 
   def meal_params
     params.require(:meal).permit(:title, :description, :house_rules, :price, :capacity, :address, :datetime, :user_id, images: [])
