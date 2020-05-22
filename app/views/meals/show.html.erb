@@ -44,21 +44,30 @@
       <div class="d-block w-100" style="height: 29.5vh; background-image:url(<%= rails_blob_url(@meal.images[3]) %>); background-size: 100% 100%; border-bottom-right-radius: 5px;"></div>
     </div>
   </div>
-  <%= @meal.reservations.count %>
-  <!--   <% @meal.reservations.each do |thing| %>
-  <% end %> -->
-  <% if @meal.user != current_user %>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="jumbotron colorback pb-2">
+        <p class="lead text-center"><%= "#{@meal.description}" %></p>
+        <hr class="my-2">
+        <p class="text-center mb-0 "><%= "Seats Taken" %></p>
+        <p class="p-0 m-0 text-center">–</p>
+        <p class="p-0 m-0 text-center border"><%= "#{@meal.reservations.count}/#{@meal.capacity}"%></p>
+      </div>
+    </div>
+  </div>
+  <% if @meal.user == current_user %>
     <div class="row">
       <div id="overlay" onclick="off()">
         <div class="container">
-          <div class="row">
-            <div class="col-md-12">
+          <div class="row my-5 justify-content-center">
+            <div class="col-md-6">
               <div class="card">
                 <div class="card-body">
                   <%= simple_form_for [@meal, @reservation] do |f| %>
+                    <%= f.input :description %>
                     <%= f.input :user, :as => :hidden, :input_html => { :value => @meal.user } %>
                     <%= f.input :meal, :as => :hidden, :input_html => { :value => @meal } %>
-                    <%= f.input :approved %>
+                    <%= f.hidden_field :approved, :input_html => { :value => true} %>
                     <%= f.button :submit, class: "btn btn-primary" %>
                   <% end %>
                 </div>
@@ -67,9 +76,10 @@
           </div>
         </div>
       </div>
-      <div style="padding:20px">
-        <h2>Overlay with Text</h2>
-        <button onclick="on()">Turn on overlay effect</button>
+      <div class="col-md-6 offset-md-3">
+        <div class="text-center" style="padding:20px">
+          <button class="btn btn-primary btn-lg" onclick="on()">Book This Meal!</button>
+        </div>
       </div>
     </div>
     <script>
