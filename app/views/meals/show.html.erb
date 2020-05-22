@@ -5,11 +5,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6" id="host_info">
-      <p><%= "Rating | Hosting_Frequency | Address"%></p>
+    <div class="col-md-6">
+      <p><%= @meal.address %></p>
     </div>
     <div class="col-md-6 text-right" id= "host_info">
-      <p> <%= "Share | Save" %></p>
+      <p> <%= "Share" %></p>
     </div>
   </div>
   <div class="row">
@@ -55,9 +55,9 @@
       </div>
     </div>
   </div>
-  <% if @meal.user == current_user %>
+  <% if @meal.user =! current_user %>
     <div class="row">
-      <div id="overlay" onclick="off()">
+      <div id="overlay" >
         <div class="container">
           <div class="row my-5 justify-content-center">
             <div class="col-md-6">
