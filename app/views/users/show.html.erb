@@ -4,13 +4,13 @@
     <div class="col-md-6 col-sm-12 border p-5">
       <h4>Organised meals:</h4>
       <% @user.meals.each do |thing| %>
-        <p><%= thing.title %></p>
+        <p><%= link_to(thing.title, meal_path(thing)) %><span class="text-right"><%= "#{thing.reservations.count}/#{thing.capacity}" %></span></p>
       <% end %>
     </div>
     <div class="col-md-6 col-sm-12 border p-5">
       <h4>Your reservations:</h4>
-      <% @user.reservations do |thing| %>
-        <p><%= thing.meal.title %></p>
+      <% @user.reservations.each do |thing| %>
+        <p><%= link_to(thing.meal.title, meal_path(thing.meal)) %><span class="text-right"><%= "#{thing.meal.reservations.count}/#{thing.meal.capacity}"%></span></p>
       <% end %>
     </div>
 </div>
