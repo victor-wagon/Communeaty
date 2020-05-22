@@ -13,26 +13,35 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel" >
+    <div class="col-md-7 offset-md-1 p-0">
+      <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel" data-interval="4250" >
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <% @meal.images.each_with_index do |meal, index| %>
+            <% if index == 0 %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="0"class="active"></li>
+            <% else %>
+              <li data-target="#carouselExampleIndicators" data-slide-to="<%= "#{index}" %>"></li>
+            <% end %>
+          <% end %>
         </ol>
         <div class="carousel-inner">
           <% @meal.images.each_with_index do |meal, index| %>
             <% if index == 0 %>
               <div class="carousel-item active">
-                <div class="d-block w-100" style="height: 60vh; background-image:url(<%= rails_blob_url(meal) %>); background-repeat: no-repeat; background-size: 100% 100%; background-position: center;"></div>
+                <div class="d-block w-100" style="height: 60vh; background-image:url(<%= rails_blob_url(meal) %>); background-repeat: no-repeat; background-size: 100% 100%; background-position: center; border-bottom-left-radius: 5px; border-top-left-radius: 5px;"></div>
               </div>
             <% else %>
               <div class="carousel-item">
-                <div class="d-block w-100" style="height: 60vh; background-image:url(<%= rails_blob_url(meal) %>); background-repeat: no-repeat; background-size: 100% 100%; background-position: center;"></div>
+                <div class="d-block w-100" style="height: 60vh; background-image:url(<%= rails_blob_url(meal) %>); background-repeat: no-repeat; background-size: 100% 100%; background-position: center; border-bottom-left-radius: 5px; border-top-left-radius: 5px;"></div>
               </div>
             <% end %>
           <% end %>
         </div>
       </div>
+    </div>
+    <div class="col-md-3 pl-2">
+      <div class="d-block w-100" style="height: 29.5vh; background-image:url(<%= rails_blob_url(@meal.images[2]) %>); background-size: 100% 100%; margin-bottom: 1vh; border-top-right-radius: 5px;"></div>
+      <div class="d-block w-100" style="height: 29.5vh; background-image:url(<%= rails_blob_url(@meal.images[3]) %>); background-size: 100% 100%; border-bottom-right-radius: 5px;"></div>
     </div>
   </div>
   <div class="row"></div>
