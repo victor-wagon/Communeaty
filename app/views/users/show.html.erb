@@ -1,0 +1,19 @@
+<div class="container">
+  <h2><%= @user.first_name %>'s profile</h2>
+  <div class="row">
+    <div class="col-md-6 col-sm-12 border p-5">
+      <h4>Organised meals:</h4>
+      <% @user.meals.each do |thing| %>
+        <p><%= thing.title %></p>
+      <% end %>
+    </div>
+    <div class="col-md-6 col-sm-12 border p-5">
+      <h4>Your reservations:</h4>
+      <% @user.reservations do |thing| %>
+        <p><%= thing.meal.title %></p>
+      <% end %>
+    </div>
+</div>
+
+
+</div>
