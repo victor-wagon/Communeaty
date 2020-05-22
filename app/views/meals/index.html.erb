@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3 text-center">
-      <h1>Meals</h1>
+      <h1 class="pt-2">Meals</h1>
     </div>
   </div>
   <div class="row mx-4">
@@ -9,7 +9,7 @@
       <div class="col-lg-4 col-md-6 col-sm-12">
         <%= link_to meal_path(meal) do %>
           <div class="card my-3">
-            <img src="img_food.jpg" alt="food_card" class="card-img-top">
+            <img src=" <%= rails_blob_url(meal.images[0]) %>" alt="" style="object-fit: cover; height: 30vh;">
             <div class="card-body text-center">
               <p> <%= "#{meal.title}" %></p>
             </div>
@@ -19,8 +19,3 @@
     <% end %>
   </div>
 </div>
-<!-- <h2>Meals path</h2>
-
-<% @meals.each do |meal| %>
-  <div><%= meal.title %> | <%= meal.user.email %></div>
-<% end %> -->

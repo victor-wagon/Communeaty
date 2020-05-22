@@ -1,18 +1,18 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon py-0">
   <%= link_to root_path, class: "navbar-brand" do %>
     <i class="fas fa-utensils"></i>
-    <% end %>
-
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to current_user.first_name, current_user, class: "nav-link" %>
+        </li>
+        <li class="nav-item px-3">
+          <%= link_to "create a meal", new_meal_path, class: "nav-link btn btn-primary btn-sm rounded" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://source.unsplash.com/random/400x400", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
